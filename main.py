@@ -1,5 +1,6 @@
 from disease_classifier import logger
 from disease_classifier.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from disease_classifier.pipeline.stage_02_base_model import BaseModelTrainingPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 try:
@@ -7,6 +8,17 @@ try:
     ingestion = DataIngestionTrainingPipeline()
     ingestion.main()
     logger.info(f"======= stage {STAGE_NAME} completed =======")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+STAGE_NAME = "Preparing base model"
+try:
+    logger.info(f"*******************")
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    obj = BaseModelTrainingPipeline()
+    obj.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
     logger.exception(e)
     raise e
