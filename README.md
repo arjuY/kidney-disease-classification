@@ -1,6 +1,6 @@
 # kidney-disease-classification
 
-# How to run?
+# Running code
 ### STEPS:
 
 Clone the repository
