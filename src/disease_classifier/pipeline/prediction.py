@@ -2,14 +2,11 @@ import os
 import numpy as np
 import tensorflow as tf
 
-
 class PredictionPipeline:
     def __init__(self,filename):
         self.filename =filename
-
-
     
-    def predict(self):
+    def make_prediction(self):
         # load model
         model = tf.keras.models.load_model(os.path.join("model", "model.h5"))
 
